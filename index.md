@@ -5,6 +5,7 @@
 layout: single
 author_profile: true
 ---
-
-I’m a graduate aerospace engineer specializing in autonomous systems, control, and trajectory optimization at University of Michigan, Ann Arbor. My work spans spacecraft docking, state estimation, and multi-robot simulation, with hands-on experience building robust, end-to-end systems in Python, C++, and ROS2.
--
+I’m a graduate aerospace engineer specializing in autonomous systems, control, and trajectory optimization at University of Michigan, Ann Arbor. My work spans spacecraft docking, state estimation, and multi-robot simulation, with hands-on experience building robust, end-to-end systems in Python, C++, and ROS2. My main projects are:
+- Project 1
+- Project 2
+- Project 3
