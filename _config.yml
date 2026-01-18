@@ -60,7 +60,7 @@ plugins:
 author:
   name   : "Divyanshu Singh Chauhan"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "Graduate student in Aerospace Engineering with specialisation in Autonomous Systems and Controls."
+  bio    : "Designing Intelligence for Autonomous Spacecraft and Robots"
   links:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
