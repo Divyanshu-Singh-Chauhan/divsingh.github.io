@@ -63,13 +63,13 @@ author:
   bio    : "Graduate student in Aerospace Engineering with specialisation in Autonomous Systems and Controls."
   links:
     - label: "LinkedIn"
-      icon: "fas fa-fw fa-link"
+      icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/div-chauhan/"
  #   - label: "Github"
  #     icon: "fab fa-fw fa-twitter-square"
  #     url: "https://twitter.com/"
     - label: "GitHub"
-      icon: "fab fa-fw fa-linkedin"
+      icon: "fab fa-fw fa-github"
       url: "https://github.com/Divyanshu-Singh-Chauhan"
  #   - label: "Instagram"
  #     icon: "fab fa-fw fa-instagram"
@@ -77,15 +77,15 @@ author:
 
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
+ #   - label: "Twitter"
+ #     icon: "fab fa-fw fa-twitter-square"
+ #     url: "https://twitter.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+ #   - label: "Instagram"
+ #     icon: "fab fa-fw fa-instagram"
+ #     url: "https://instagram.com/"
 
 defaults:
   # _posts
