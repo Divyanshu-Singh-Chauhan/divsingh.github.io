@@ -26,7 +26,7 @@ Python, CasADi, IPOPT, Optimal Control, State Estimation
 
 📎 **Links:**  
 - [GitHub Repository](https://github.com/your-link)
-- ![Trajectory plot]((/assets/docs/3D_Trajectory.pdf))
+- ![Trajectory plot]((/assets/docs/3D_Trajectory.png))
 
 ---
 
