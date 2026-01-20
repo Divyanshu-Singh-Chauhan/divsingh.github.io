@@ -26,7 +26,7 @@ Python, CasADi, IPOPT, Optimal Control, State Estimation
 
 📎 **Links:**  
 - [GitHub Repository](https://github.com/your-link)
-- ![Trajectory plot]((assets/docs/3D_Trajectory.pdf))
+- ![Trajectory plot]((/assets/docs/3D_Trajectory.pdf))
 
 ---
 
@@ -44,7 +44,7 @@ A physics-based and photo-realistic simulator for multi-robot systems performing
 
 📎 **Links:**  
 - [GitHub Repo](https://github.com/Divyanshu-Singh-Chauhan/Resource-Aware-Coordination-AirSim)
-- ![Simulation Environment with Drones](assets/docs/drones_in_simenv.png)
+- ![Simulation Environment with Drones](/assets/docs/drones_in_simenv.png)
 
 ---
 
@@ -60,4 +60,4 @@ Detect anomalies on lunar surface imagery using unsupervised learning.
 
 📎 **Links:**  
 - [Paper](https://agu.confex.com/agu/abscicon21/meetingapp.cgi/Paper/1031511)
-- ![Anomalies on the Lunar Anomalies](assets/docs/lunar_anomaly.png)
+- ![Anomalies on the Lunar Anomalies](/assets/docs/lunar_anomaly.png)
