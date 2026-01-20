@@ -67,4 +67,5 @@ Deep learning pipeline for detecting anomalies on lunar surface imagery from NAS
 
 📩 **Interested in autonomy, space systems, or robotics roles?**  
 Let’s connect → [Contact Me](/contact/)
+![Test Image]({{ site.baseurl }}/assets/docs/lunar_anomaly.png)
 
