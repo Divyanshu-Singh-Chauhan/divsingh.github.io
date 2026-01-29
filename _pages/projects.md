@@ -10,10 +10,10 @@ toc_sticky: true
 {: #robust-autonomous-docking}
 
 ### Overview
-Autonomous spacecraft docking is a safety-critical problem that requires generating dynamically feasible trajectories while respecting strict constraints on relative position, velocity, attitude, and line-of-sight — all under uncertainty. This project focuses on designing a **robust, end-to-end trajectory optimization pipeline** suitable for real autonomous docking systems.
+Autonomous spacecraft docking is a safety-critical problem that requires generating dynamically feasible trajectories while respecting strict constraints on relative position, velocity, attitude, and line of sight, all under uncertainty. This project focuses on designing a **robust, end-to-end trajectory optimization pipeline** suitable for real autonomous docking systems.
 
 ### What I Built
-- Designed an **end-to-end, three-phase optimal control pipeline** for autonomous docking:
+- Designed an **end to end, three phase optimal control pipeline** for autonomous docking:
   - Far-range approach
   - Proximity operations
   - Terminal docking phase
