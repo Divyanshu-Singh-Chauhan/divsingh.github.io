@@ -5,7 +5,7 @@ permalink: /resume/
 ---
 
 📄 **Download my resume:**  
-[Download PDF](/assets/docs/Divyanshu_Singh_Chauhan_Resume.pdf)
+[Download PDF](/assets/docs/Resume_Divyanshu (4).pdf)
 
 ---
 
