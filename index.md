@@ -54,14 +54,14 @@ ROS2-based multi-robot systems, physics-based simulation, SLAM, and perception.
 ### **Robust Autonomous Docking Under Uncertainty**
 End-to-end trajectory optimization pipeline for spacecraft docking under uncertainty and strict safety constraints.  
 *Python, CasADi, IPOPT, Monte Carlo, State Estimation*  
-[View Project →](_pages/projects/#robust-autonomous-docking)
+[View Project →](/projects/#robust-autonomous-docking)
 
 ---
 
 ### **Communication-Aware Multi-Robot Simulation**
 Physics-based, photo-realistic multi-robot simulator using ROS2 and Unity for semantic mapping.  
 *C++, ROS2, Unity, SLAM*  
-[View Project →](_pages/projects/#multi-robot-simulation)
+[View Project →](projects/#multi-robot-simulation)
 
 ---
 
