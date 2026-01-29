@@ -9,8 +9,8 @@ toc_sticky: true
 ## Trajectory Optimization for Spacecraft Docking
 {: #robust-autonomous-docking}
 
-### Problem
-Autonomous spacecraft docking requires precise trajectory planning under uncertainty while satisfying strict safety and terminal constraints.
+### Problem Statement
+Autonomous spacecraft docking requires precise trajectory planning under uncertainty while satisfying strict safety and terminal constraints. How do we generate valid and optimal trajectories? 
 
 ### My Contribution
 - Designed a **3-phase optimal control deterministic pipeline** for docking
