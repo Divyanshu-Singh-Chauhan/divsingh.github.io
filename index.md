@@ -13,9 +13,24 @@ header:
     - label: "Download Resume"
       url: "/resume/"
 ---
+I’m a graduate aerospace engineer at the University of Michigan focused on autonomous systems, control, and robotics. My work combines trajectory optimization, state estimation, and feedback control to build robust, end-to-end autonomy pipelines — from spacecraft docking to multi-robot simulation. With prior industry experience shipping production Python systems, I care deeply about algorithms that are not just elegant, but deployable.
 
-I’m a graduate aerospace engineer specializing in autonomous systems, control, and trajectory optimization at the University of Michigan, Ann Arbor.  
-My work spans spacecraft docking, state estimation, and multi-robot simulation, with hands-on experience building robust, end to end systems in Python, C++, and ROS2.
+## 🧩 Professional Engineering Experience
+
+Before transitioning fully into aerospace autonomy research, I worked for **three years as a Python developer in industry**, where I designed and deployed **production-scale automation and machine learning systems**.
+
+- Built and maintained **CI/CD pipelines** for Python services, ensuring reproducibility, automated testing, and safe deployments
+- Developed **RESTful APIs (FastAPI)** and event-driven automation workflows used in live production environments
+- Collaborated across engineering and data science teams using **Git-based workflows, code reviews, and agile development**
+- Optimized reliability and latency of automation pipelines operating under real operational constraints
+
+This background allows me to approach robotics and autonomy problems with a **software-first, deployment-aware mindset**, bridging research-grade algorithms with real-world systems.
+
+### 🛠️ Software Engineering & MLOps
+- Production Python, object-oriented design, performance profiling
+- CI/CD pipelines, automated testing, version-controlled deployments
+- FastAPI, RESTful services, system integration
+- Linux, Git, Agile workflows
 
 ---
 
@@ -55,7 +70,6 @@ Physics-based, photo-realistic multi-robot simulator using ROS2 and Unity for se
 Deep learning pipeline for detecting anomalies on lunar surface imagery from NASA’s LRO.  
 *TensorFlow, VAEs, Computer Vision*  
 [View Project →](/projects/#lunar-anomaly-detection)
-
 ---
 
 ## 🎓 Credentials at a Glance
