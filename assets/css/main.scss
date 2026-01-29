@@ -1,0 +1,10 @@
+---
+---
+
+@import "minimal-mistakes";
+
+/* Increase author avatar size */
+.author__avatar img {
+  max-width: 220px;   /* default is ~110px */
+  border-radius: 50%;
+}
