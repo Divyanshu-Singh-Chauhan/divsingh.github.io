@@ -25,7 +25,7 @@ Python, CasADi, IPOPT, Optimal Control, State Estimation
 - Working towards robustness against uncertainty in target's location
 
 📎 **Links:**  
-- [Animation Video](https://github.com/your-link)
+- [Animation Video](https://drive.google.com/file/d/13JnlbhTjiCzTOqh1IgnJ49QA6oTIqQhc/view?usp=sharing)
 - ![Trajectory plot](({{ site.baseurl }}/assets/images/3d_Trajectory.png))
 
 ---
