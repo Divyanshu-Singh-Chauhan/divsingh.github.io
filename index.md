@@ -25,8 +25,7 @@ Before transitioning fully into aerospace autonomy research, I worked for **thre
 - Optimized reliability and latency of automation pipelines operating under real operational constraints
 
 This background allows me to approach robotics and autonomy problems with a **software-first, deployment-aware mindset**, bridging research-grade algorithms with real-world systems.
-
-### 🛠️ Software Engineering & MLOps
+### Software Engineering & MLOps
 - Production Python, object-oriented design, performance profiling
 - CI/CD pipelines, automated testing, version-controlled deployments
 - FastAPI, RESTful services, system integration
@@ -34,7 +33,7 @@ This background allows me to approach robotics and autonomy problems with a **so
 
 ---
 
-## 🔧 What I Work On
+## 🔧 What I Currently Work On
 
 ### 🛰️ Autonomous Control
 Feedback control, MPC, and robust control for nonlinear aerospace and robotic systems.
