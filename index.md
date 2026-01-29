@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Turning Equations into Autonomous Spacecraft and Robots"
+title: "Autonomous Systems and Control"
 permalink: /
 author_profile: true
 header:
