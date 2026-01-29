@@ -14,8 +14,8 @@ header:
       url: "/resume/"
 ---
 
-I’m a **graduate aerospace engineer** specializing in **autonomous systems, control, and trajectory optimization** at the **University of Michigan, Ann Arbor**.  
-My work spans **spacecraft docking, state estimation, and multi-robot simulation**, with hands-on experience building robust, end-to-end systems in **Python, C++, and ROS2**.
+I’m a graduate aerospace engineer specializing in autonomous systems, control, and trajectory optimization at the University of Michigan, Ann Arbor.  
+My work spans spacecraft docking, state estimation, and multi-robot simulation, with hands-on experience building robust, end to end systems in Python, C++, and ROS2.
 
 ---
 
@@ -59,9 +59,9 @@ Deep learning pipeline for detecting anomalies on lunar surface imagery from NAS
 ---
 
 ## 🎓 Credentials at a Glance
-- **MSE Aerospace Engineering**, University of Michigan (Autonomous Systems & Control)
-- **3+ years industry experience** as a Python developer
-- **Publications** in *PLOS One* and *AbSciCon*
+- MSE Aerospace Engineering, University of Michigan (Autonomous Systems & Control)
+- 3+ years industry experience as a Python developer
+- Publications in PLOS One and AbSciCon
 
 ---
 
