@@ -36,7 +36,6 @@ Autonomous spacecraft docking is a safety-critical problem that requires generat
 
 📎 **Links**
 - [Trajectory Animation](https://drive.google.com/file/d/13JnlbhTjiCzTOqh1IgnJ49QA6oTIqQhc/view?usp=sharing)
-- ![3D Trajectory Visualization]({{ site.baseurl }}/assets/images/3d_Trajectory.png)
 
 ---
 
