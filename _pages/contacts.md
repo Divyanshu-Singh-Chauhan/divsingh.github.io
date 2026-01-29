@@ -4,13 +4,13 @@ title: "Contact"
 permalink: /contact/
 ---
 
-📧 **Email:**  
+**Email:**  
 [singhdivyanshu010@gmail.com](mailto:singhdivyanshu010@gmail.com)
 
-💼 **LinkedIn:**  
+**LinkedIn:**  
 [linkedin.com/in/div-chauhan](https://www.linkedin.com/in/div-chauhan/)
 
-💻 **GitHub:**  
+**GitHub:**  
 [github.com/Divyanshu-Singh-Chauhan](https://github.com/Divyanshu-Singh-Chauhan)
 
 ---
