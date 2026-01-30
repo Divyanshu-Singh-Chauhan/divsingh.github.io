@@ -9,6 +9,9 @@ toc_sticky: true
 ## Trajectory Optimization for Autonomous Spacecraft Docking
 {: #robust-autonomous-docking}
 
+📎 **Links**
+- [Trajectory Animation](https://drive.google.com/file/d/13JnlbhTjiCzTOqh1IgnJ49QA6oTIqQhc/view?usp=sharing)
+
 ### Overview
 Autonomous spacecraft docking is a safety-critical problem that requires generating dynamically feasible trajectories while respecting strict constraints on relative position, velocity, attitude, and line of sight, all under uncertainty. This project focuses on designing a **robust, end-to-end trajectory optimization pipeline** suitable for real autonomous docking systems.
 
@@ -33,14 +36,14 @@ Autonomous spacecraft docking is a safety-critical problem that requires generat
 - Established a scalable foundation for **belief-space trajectory optimization** in future iterations
 
 **Tools:** Python, CasADi, IPOPT, Optimal Control, State Estimation
-
-📎 **Links**
-- [Trajectory Animation](https://drive.google.com/file/d/13JnlbhTjiCzTOqh1IgnJ49QA6oTIqQhc/view?usp=sharing)
-
 ---
 
 ## Communication-Aware Multi-Robot Simulation Framework
 {: #multi-robot-simulation}
+
+📎 **Links**
+- [GitHub Repository](https://github.com/Divyanshu-Singh-Chauhan/Resource-Aware-Coordination-AirSim)
+- ![Multi-Robot Simulation Environment]({{ site.baseurl }}/assets/docs/drones_in_simenv.png)
 
 ### Overview
 This project focuses on building a **physics-based, photo-realistic simulation environment** for studying coordination, communication constraints, and semantic mapping in multi-robot systems. The goal is to bridge the gap between algorithm development and deployment-ready robotic autonomy.
@@ -63,15 +66,14 @@ This project focuses on building a **physics-based, photo-realistic simulation e
 - Directly applicable to **drone swarms, robotic fleets, and distributed autonomy**
 
 **Tools:** C++, ROS2, Unity, SLAM, Multi-Robot Systems
-
-📎 **Links**
-- [GitHub Repository](https://github.com/Divyanshu-Singh-Chauhan/Resource-Aware-Coordination-AirSim)
-- ![Multi-Robot Simulation Environment]({{ site.baseurl }}/assets/docs/drones_in_simenv.png)
-
 ---
 
 ## Lunar Anomaly Detection Using Deep Learning
 {: #lunar-anomaly-detection}
+
+📎 **Links**
+- [Conference Paper](https://agu.confex.com/agu/abscicon21/meetingapp.cgi/Paper/1031511)
+- ![Detected Lunar Anomalies]({{ site.baseurl }}/assets/docs/lunar_anomaly.png)
 
 ### Overview
 This project explores **unsupervised anomaly detection** on lunar surface imagery using deep learning. The objective was to automatically identify unusual surface features in large-scale orbital imagery without relying on labeled anomaly data.
@@ -93,7 +95,3 @@ This project explores **unsupervised anomaly detection** on lunar surface imager
 - Demonstrates ability to handle **large datasets, noisy data, and weak supervision**
 
 **Tools:** TensorFlow, Keras, VAEs, Computer Vision, Cloud Computing
-
-📎 **Links**
-- [Conference Paper](https://agu.confex.com/agu/abscicon21/meetingapp.cgi/Paper/1031511)
-- ![Detected Lunar Anomalies]({{ site.baseurl }}/assets/docs/lunar_anomaly.png)
