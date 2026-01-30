@@ -52,7 +52,7 @@ ROS2-based multi-robot systems, physics-based simulation, SLAM, and perception.
 ### **Robust Autonomous Docking Under Uncertainty**
 End-to-end trajectory optimization pipeline for spacecraft docking under uncertainty and strict safety constraints.  
 *Python, CasADi, IPOPT, Monte Carlo, State Estimation*  
-[View Project →](/projects/#robust-autonomous-docking)
+[View Project →](projects/#robust-autonomous-docking)
 
 ---
 
@@ -66,7 +66,7 @@ Physics-based, photo-realistic multi-robot simulator using ROS2 and Unity for se
 ### **Neural Anomaly Detection on Lunar Imagery**
 Deep learning pipeline for detecting anomalies on lunar surface imagery from NASA’s LRO.  
 *TensorFlow, VAEs, Computer Vision*  
-[View Project →](/projects/#lunar-anomaly-detection)
+[View Project →](projects/#lunar-anomaly-detection)
 ---
 
 ## Credentials at a Glance
@@ -77,4 +77,4 @@ Deep learning pipeline for detecting anomalies on lunar surface imagery from NAS
 ---
 
 **Interested in autonomy, space systems, or robotics roles?**  
-Let’s connect → [Contact Me](/contact/)
+Let’s connect → [Contact Me](contact/)
