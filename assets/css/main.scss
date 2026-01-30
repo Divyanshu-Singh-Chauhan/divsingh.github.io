@@ -3,6 +3,14 @@
 
 @import "minimal-mistakes";
 
+.page__hero--overlay {
+  opacity: 1 !important;
+}
+
+.page__hero-image {
+  filter: none !important;
+}
+
 .author__avatar img {
   max-width: 220px;
   border-radius: 50%;
