@@ -68,6 +68,28 @@ This project focuses on building a **physics-based, photo-realistic simulation e
 **Tools:** C++, ROS2, Unity, SLAM, Multi-Robot Systems
 ---
 
+## Autonomous Vision-Based Manipulation with a 5-DOF Robotic Arm {#armlab-manipulation}
+
+An end-to-end autonomous manipulation system developed for a 5-DOF robotic arm, integrating **computer vision, kinematics, and motion planning** to detect, classify, and manipulate objects in a structured workspace.
+
+The system performs **automatic camera calibration**, **real-time object detection**, and **geometry-based inverse kinematics**, enabling reliable pick-and-place, stacking, and task-level autonomy under competition constraints.
+
+**Key capabilities include:**
+- Automatic **intrinsic and extrinsic camera calibration** using AprilTags
+- Robust **RGB–Depth object detection** with contour refinement and clustering
+- **Forward and inverse kinematics** using the DH convention
+- Geometry-based IK for accurate grasping and placement
+- State-machine–driven autonomy for multi-stage tasks
+
+**Technologies:**  
+*Python, ROS, OpenCV, Intel RealSense (LiDAR), Kinematics, Path Planning*
+
+**Outcome:**  
+🥈 **Second place** in the ROB 550 final competition at the University of Michigan.
+
+[📄 Project Report (PDF)]({{ "/assets/docs/ROB_550_Armlab_Report.pdf" | relative_url }})
+---
+
 ## Lunar Anomaly Detection Using Deep Learning
 {: #lunar-anomaly-detection}
 
