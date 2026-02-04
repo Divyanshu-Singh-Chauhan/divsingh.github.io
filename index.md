@@ -63,6 +63,13 @@ Physics-based, photo-realistic multi-robot simulator using ROS2 and Unity for se
 
 ---
 
+### **Autonomous Vision-Based Robotic Manipulation**
+End-to-end perception, kinematics, and control pipeline for a 5-DOF robotic arm using RGB-D sensing and geometry-based planning.  
+*Python, ROS, OpenCV, Kinematics, Path Planning*  
+[View Project →]({{ "/projects/#armlab-manipulation" | relative_url }})
+
+---
+
 ### **Neural Anomaly Detection on Lunar Imagery**
 Deep learning pipeline for detecting anomalies on lunar surface imagery from NASA’s LRO.  
 *TensorFlow, VAEs, Computer Vision*  
