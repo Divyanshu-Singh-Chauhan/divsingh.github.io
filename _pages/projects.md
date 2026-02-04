@@ -87,7 +87,7 @@ The system performs **automatic camera calibration**, **real-time object detecti
 **Outcome:**  
 🥈 **Second place** in the ROB 550 final competition at the University of Michigan.
 
-[📄 Project Report (PDF)]({{ "/assets/docs/ROB_550_Armlab_Report.pdf" | relative_url }})
+[📄 Project Report (PDF)]({{ "/assets/docs/ROB_550_armlab.pdf" | relative_url }})
 ---
 
 ## Lunar Anomaly Detection Using Deep Learning
