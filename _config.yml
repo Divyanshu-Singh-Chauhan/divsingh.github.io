@@ -1,40 +1,57 @@
+# ---------------------------------------------------------------------------
+# Site settings
+# ---------------------------------------------------------------------------
 title: Divyanshu Singh Chauhan
+subtitle: "Robotics &amp; Autonomy Engineer"
+name: "Divyanshu Singh Chauhan"
 email: singhdivyanshu010@gmail.com
-description: >- 
-  Graduate aerospace engineer specializing in autonomous systems, control,
-  and trajectory optimization for spacecraft and robotic systems.
-twitter_username: username
-github_username: username
-minimal_mistakes_skin: neon
+description: >-
+  Robotics and autonomy engineer (MSE, University of Michigan) working across
+  perception, SLAM, state estimation, planning and control — from particle filter
+  SLAM on real differential drive robots to spacecraft docking trajectory
+  optimization. C++, Python and ROS2 on Linux.
+
+# NOTE: this repo is published as a *project* page, so the site lives at
+# https://divyanshu-singh-chauhan.github.io/divsingh.github.io/
+# If you rename the repo to "divyanshu-singh-chauhan.github.io" (recommended —
+# it gives you a clean root URL), change baseurl to an empty string: baseurl: ""
+url: "https://divyanshu-singh-chauhan.github.io"
+baseurl: "/divsingh.github.io"
+repository: "Divyanshu-Singh-Chauhan/divsingh.github.io"
+
+github_username: Divyanshu-Singh-Chauhan
+locale: "en-US"
+
+minimal_mistakes_skin: "dark"
 search: true
+search_full_content: true
+words_per_minute: 200
+
+# Social / link preview card
+og_image: "/assets/images/og-card.png"
+social:
+  type: Person
+  name: Divyanshu Singh Chauhan
+  links:
+    - "https://www.linkedin.com/in/div-chauhan/"
+    - "https://github.com/Divyanshu-Singh-Chauhan"
 
 # Build settings
 markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
-# Outputting
 permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
-paginate_path: /page:num/
 timezone: America/Detroit
 
 include:
   - _pages
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md
 
-# Plugins (previously gems:)
 plugins:
-  - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
@@ -42,25 +59,37 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "Divyanshu Singh Chauhan"
-  avatar : "/assets/images/bike.jpeg"
-  bio    : "Designing Intelligence for Autonomous Spacecraft and Robots"
+  name        : "Divyanshu Singh Chauhan"
+  avatar      : "/assets/images/bike.jpeg"
+  bio         : "Perception, estimation and control for robots and spacecraft. C++ / Python / ROS2."
+  location    : "Ann Arbor, MI"
   links:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/div-chauhan/"
- #   - label: "Github"
- #     icon: "fab fa-fw fa-twitter-square"
- #     url: "https://twitter.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/Divyanshu-Singh-Chauhan"
- #   - label: "Instagram"
- #     icon: "fab fa-fw fa-instagram"
- #     url: "https://instagram.com/"
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope"
+      url: "mailto:singhdivyanshu010@gmail.com"
+    - label: "Resume"
+      icon: "fas fa-fw fa-file-pdf"
+      url: "/assets/docs/Resume_Divyanshu_Robotics.pdf"
+
+footer:
+  links:
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/div-chauhan/"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/Divyanshu-Singh-Chauhan"
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope"
+      url: "mailto:singhdivyanshu010@gmail.com"
 
 defaults:
-  # _posts
   - scope:
       path: ""
       type: posts
@@ -68,10 +97,9 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: true
+      comments: false
       share: true
       related: true
-  # _pages
   - scope:
       path: "_pages"
       type: pages

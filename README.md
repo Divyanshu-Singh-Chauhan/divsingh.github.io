@@ -1,27 +1,41 @@
-# Minimal Mistakes remote theme starter
+# divsingh.github.io
 
-Click [**Use this template**](https://github.com/mmistakes/mm-github-pages-starter/generate) button above for the quickest method of getting started with the [Minimal Mistakes Jekyll theme](https://github.com/mmistakes/minimal-mistakes).
+Personal portfolio for Divyanshu Singh Chauhan — robotics and autonomy engineering.
+Built with [Jekyll](https://jekyllrb.com/) and the [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/) remote theme, hosted on GitHub Pages.
 
-Contains basic configuration to get you a site with:
+Live: <https://divyanshu-singh-chauhan.github.io/divsingh.github.io/>
 
-- Sample posts.
-- Sample top navigation.
-- Sample author sidebar with social links.
-- Sample footer links.
-- Paginated home page.
-- Archive pages for posts grouped by year, category, and tag.
-- Sample about page.
-- Sample 404 page.
-- Site wide search.
+## Layout
 
-Replace sample content with your own and [configure as necessary](https://mmistakes.github.io/minimal-mistakes/docs/configuration/).
+```
+_config.yml              site config, author profile, SEO
+_data/navigation.yml     top nav
+index.md                 homepage (splash layout)
+_pages/
+  projects.md            all project write-ups (anchors linked from the homepage)
+  publications.md
+  resume.md              both résumé PDFs
+  contacts.md
+  404.md
+assets/
+  css/main.scss          custom styles layered over Minimal Mistakes
+  images/                hero banner, social card, photos, figures
+  docs/                  résumé PDFs, project reports, figures
+```
 
----
+## Running locally
 
-## Troubleshooting
+```bash
+bundle install
+bundle exec jekyll serve
+# http://localhost:4000/divsingh.github.io/
+```
 
-If you have a question about using Jekyll, start a discussion on the [Jekyll Forum](https://talk.jekyllrb.com/) or [StackOverflow](https://stackoverflow.com/questions/tagged/jekyll). Other resources:
+## Notes
 
-- [Ruby 101](https://jekyllrb.com/docs/ruby-101/)
-- [Setting up a Jekyll site with GitHub Pages](https://jekyllrb.com/docs/github-pages/)
-- [Configuring GitHub Metadata](https://github.com/jekyll/github-metadata/blob/master/docs/configuration.md#configuration) to work properly when developing locally and avoid `No GitHub API authentication could be found. Some fields may be missing or have incorrect data.` warnings.
+- The site is published as a **project page**, so `baseurl` is `/divsingh.github.io`.
+  Renaming the repo to `divyanshu-singh-chauhan.github.io` gives a clean root URL —
+  if you do that, set `baseurl: ""` in `_config.yml`.
+- Internal links use `{{ "/path/" | relative_url }}` so they keep working under the baseurl.
+- Project anchors on `/projects/` are set explicitly (`{: #botlab-slam}`); the homepage
+  links to those anchors, so don't rename them without updating `index.md`.
