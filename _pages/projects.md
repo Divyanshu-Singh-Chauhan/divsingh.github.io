@@ -6,58 +6,114 @@ toc: true
 toc_sticky: true
 ---
 
-## Robust Autonomous Docking Under Uncertainty
+## Trajectory Optimization for Autonomous Spacecraft Docking
 {: #robust-autonomous-docking}
 
-### Problem
-Autonomous spacecraft docking requires precise trajectory planning under uncertainty while satisfying strict safety and terminal constraints.
-
-### My Contribution
-- Designed a **3-phase optimal control pipeline** for docking
-- Incorporated **uncertainty-aware terminal constraints**
-- Used **Monte Carlo sampling and covariance-based perturbations**
-
-### Tools & Methods
-Python, CasADi, IPOPT, Optimal Control, State Estimation
-
-### Results
-- Constraint-satisfying docking trajectories
-- Robustness against sensor noise and process uncertainty
-
-📎 **Links:**  
-- [GitHub Repository](https://github.com/your-link)
-- Trajectory plots & simulations (add images here)
-
----
-
-## Communication-Aware Multi-Robot Simulation
-{: #multi-robot-simulation}
+📎 **Links**
+- [Trajectory Animation](https://drive.google.com/file/d/13JnlbhTjiCzTOqh1IgnJ49QA6oTIqQhc/view?usp=sharing)
 
 ### Overview
-A physics-based and photo-realistic simulator for multi-robot systems performing semantic mapping.
+Autonomous spacecraft docking is a safety-critical problem that requires generating dynamically feasible trajectories while respecting strict constraints on relative position, velocity, attitude, and line of sight, all under uncertainty. This project focuses on designing a **robust, end-to-end trajectory optimization pipeline** suitable for real autonomous docking systems.
 
-### Key Work
-- ROS2 middleware in **C++**
-- Unity-based visualization
-- Migration from ROS1 → ROS2
-- Integration of SLAM and active perception
+### What I Built
+- Designed an **end to end, three phase optimal control pipeline** for autonomous docking:
+  - Far-range approach
+  - Proximity operations
+  - Terminal docking phase
+- Implemented **hard safety and terminal constraints** inspired by NASA docking standards
+- Formulated **uncertainty-aware terminal costs** using covariance-based perturbations
+- Integrated **Monte Carlo sampling** to evaluate constraint satisfaction under uncertainty
 
-📎 **Links:**  
-- GitHub Repo  
-- Demo Video / GIF
+### Technical Highlights
+- Nonlinear optimal control formulated using **CasADi**
+- Numerical optimization using **IPOPT**
+- Explicit modeling of **relative position, velocity, and attitude constraints**
+- Designed with future integration of **Kalman filter–based belief propagation** for closed-loop replanning
 
+### Results & Impact
+- Successfully generated **constraint-satisfying docking trajectories** for deterministic target states
+- Demonstrated sensitivity of terminal feasibility to uncertainty in target pose
+- Established a scalable foundation for **belief-space trajectory optimization** in future iterations
+
+**Tools:** Python, CasADi, IPOPT, Optimal Control, State Estimation
+---
+
+## Communication-Aware Multi-Robot Simulation Framework
+{: #multi-robot-simulation}
+
+📎 **Links**
+- [GitHub Repository](https://github.com/Divyanshu-Singh-Chauhan/Resource-Aware-Coordination-AirSim)
+- ![Multi-Robot Simulation Environment]({{ site.baseurl }}/assets/docs/drones_in_simenv.png)
+
+### Overview
+This project focuses on building a **physics-based, photo-realistic simulation environment** for studying coordination, communication constraints, and semantic mapping in multi-robot systems. The goal is to bridge the gap between algorithm development and deployment-ready robotic autonomy.
+
+### What I Built
+- Developed a **ROS2-based multi-robot simulation stack in C++**
+- Integrated **Unity** for photo-realistic visualization and sensor simulation
+- Led the **migration of a large codebase from ROS1 → ROS2**
+- Implemented communication-aware coordination logic for multi-agent systems
+- Integrated **SLAM pipelines and active perception components**
+
+### Engineering Focus
+- Modular ROS2 node architecture for scalability and maintainability
+- Emphasis on **realistic sensing, communication latency, and resource constraints**
+- Designed to support experimentation in **semantic mapping and multi-robot planning**
+
+### Why It Matters
+- Enables testing autonomy algorithms under **realistic communication and sensing constraints**
+- Serves as a research and development platform for **multi-agent coordination**
+- Directly applicable to **drone swarms, robotic fleets, and distributed autonomy**
+
+**Tools:** C++, ROS2, Unity, SLAM, Multi-Robot Systems
+---
+
+## Autonomous Vision-Based Manipulation with a 5-DOF Robotic Arm {#armlab-manipulation}
+
+An end-to-end autonomous manipulation system developed for a 5-DOF robotic arm, integrating **computer vision, kinematics, and motion planning** to detect, classify, and manipulate objects in a structured workspace.
+
+The system performs **automatic camera calibration**, **real-time object detection**, and **geometry-based inverse kinematics**, enabling reliable pick-and-place, stacking, and task-level autonomy under competition constraints.
+
+**Key capabilities include:**
+- Automatic **intrinsic and extrinsic camera calibration** using AprilTags
+- Robust **RGB–Depth object detection** with contour refinement and clustering
+- **Forward and inverse kinematics** using the DH convention
+- Geometry-based IK for accurate grasping and placement
+- State-machine–driven autonomy for multi-stage tasks
+
+**Technologies:**  
+*Python, ROS, OpenCV, Intel RealSense (LiDAR), Kinematics, Path Planning*
+
+**Outcome:**  
+🥈 **Second place** in the ROB 550 final competition at the University of Michigan.
+
+[📄 Project Report (PDF)]({{ "/assets/docs/ROB_550_armlab.pdf" | relative_url }})
 ---
 
 ## Lunar Anomaly Detection Using Deep Learning
 {: #lunar-anomaly-detection}
 
-### Goal
-Detect anomalies on lunar surface imagery using unsupervised learning.
+📎 **Links**
+- [Conference Paper](https://agu.confex.com/agu/abscicon21/meetingapp.cgi/Paper/1031511)
+- ![Detected Lunar Anomalies]({{ site.baseurl }}/assets/docs/lunar_anomaly.png)
+
+### Overview
+This project explores **unsupervised anomaly detection** on lunar surface imagery using deep learning. The objective was to automatically identify unusual surface features in large-scale orbital imagery without relying on labeled anomaly data.
 
 ### Approach
-- Variational Autoencoders trained on NASA LRO data
-- Large-scale cloud-based training pipeline
+- Designed a **Variational Autoencoder (VAE)**-based anomaly detection pipeline
+- Trained models on **terabytes of NASA Lunar Reconnaissance Orbiter (LRO) imagery**
+- Deployed large-scale training workflows using **cloud-based infrastructure**
+- Evaluated reconstruction error distributions to identify anomalous regions
 
-📎 **Links:**  
-- [Paper](https://agu.confex.com/agu/abscicon21/meetingapp.cgi/Paper/1031511)
-- GitHub Repo
+### Results
+- Successfully identified geologically unusual regions without supervised labels
+- Demonstrated scalability of unsupervised learning for planetary science datasets
+- Work accepted for presentation at **AbSciCon** and published in peer-reviewed venues
+
+### Why It’s Relevant
+- Experience building **end-to-end ML pipelines**, not just models
+- Strong overlap with **perception systems** used in robotics and autonomy
+- Demonstrates ability to handle **large datasets, noisy data, and weak supervision**
+
+**Tools:** TensorFlow, Keras, VAEs, Computer Vision, Cloud Computing
