@@ -2,118 +2,239 @@
 layout: single
 title: "Projects"
 permalink: /projects/
+excerpt: "Autonomy, estimation and control projects — from particle filter SLAM on real robots to spacecraft docking trajectory optimization."
 toc: true
 toc_sticky: true
+toc_label: "Projects"
 ---
+
+Work spanning perception and SLAM, state estimation, planning, and control — most of it validated on hardware or against Monte Carlo analysis rather than a single nominal run.
+
+---
+
+# Robotics &amp; Autonomy
+
+## Particle Filter SLAM and Autonomous Navigation
+{: #botlab-slam}
+
+*Aug – Nov 2024 · C/C++, ROS, LiDAR, IMU · University of Michigan (ROB 550)*
+
+### The problem
+A differential drive robot has to navigate a multi-room indoor environment with no GPS and no prior map — it must localize and map simultaneously, then plan and execute collision-free paths, all on the robot's own compute.
+
+### What I built
+- **Particle filter SLAM** fusing 2D LiDAR scans with wheel odometry and IMU, maintaining an occupancy grid map built online.
+- **A\* motion planning** over the live occupancy grid, with replanning as the map filled in.
+- A **C/C++ implementation** running on the robot, with the estimation, mapping and planning components separated so each could be tested against logged data independently.
+
+### What it demonstrated
+- Reliable localization and navigation across a multi-room GPS-denied course on real hardware.
+- The failure modes that only show up outside simulation: wheel slip corrupting odometry, particle depletion after aggressive turns, and map drift on loop closure.
+
+**Stack:** C/C++, ROS, LiDAR, IMU, occupancy grid mapping, A\*
+{: .dc-stack}
+
+---
+
+## Vision-Based Manipulation with a 5-DOF Arm
+{: #armlab-manipulation}
+
+*Aug – Nov 2024 · Python, ROS, OpenCV, RealSense · University of Michigan (ROB 550)*
+
+### The problem
+Detect, classify and manipulate objects in a structured workspace with a 5-DOF arm — accurately enough to pick, place and stack under competition time limits, using only an RGB-D camera for sensing.
+
+### What I built
+- **Automatic intrinsic and extrinsic camera calibration** using AprilTags, so the workspace frame could be re-established quickly between runs.
+- **RGB-D object detection** with contour refinement and clustering to separate touching blocks and reject depth noise.
+- **Forward and inverse kinematics** using the DH convention, with a geometry-based IK solution for grasp and placement poses.
+- A **state machine** coordinating perception, planning and actuation through multi-stage autonomous tasks.
+
+### Result
+🥈 **Second place** in the ROB 550 final competition at the University of Michigan.
+
+[📄 Project report (PDF)]({{ "/assets/docs/ROB_550_armlab.pdf" | relative_url }})
+
+**Stack:** Python, ROS, OpenCV, Intel RealSense, AprilTags, kinematics, path planning
+{: .dc-stack}
+
+---
+
+## Communication-Aware Multi-Robot Simulation
+{: #multi-robot-simulation}
+
+*Jan – May 2025 · C++, ROS2, Unity · Prof. Vasileios Tzoumas, University of Michigan*
+
+![Multi-robot simulation environment]({{ "/assets/docs/drones_in_simenv.png" | relative_url }})
+
+### The problem
+Multi-robot coordination algorithms are usually developed against idealized assumptions — perfect communication, perfect sensing. Testing them honestly needs a simulator where bandwidth, latency and photo-realistic sensing are part of the experiment.
+
+### What I built
+- A **ROS2-based multi-robot simulation stack in C++**, with a modular node architecture so agents, sensors and coordination logic could be swapped independently.
+- **Unity integration** for photo-realistic rendering and sensor simulation.
+- The **ROS1 → ROS2 migration** of a large existing research codebase.
+- Integration of **SLAM pipelines** (including SlideSLAM) for semantic mapping experiments.
+
+### Why it matters
+Gives a research group a platform where coordination and active perception algorithms can be evaluated under realistic communication and sensing constraints before they touch a real fleet.
+
+[GitHub repository](https://github.com/Divyanshu-Singh-Chauhan/Resource-Aware-Coordination-AirSim)
+
+**Stack:** C++, ROS2, Unity, SLAM, multi-robot systems
+{: .dc-stack}
+
+---
+
+## Robotic Lab Automation for Unattended Sample Preparation
+{: #lab-automation}
+
+*2026 – present · Python, REST APIs, Arduino · University of Michigan*
+
+### The problem
+A multi-step sample preparation protocol currently requires a person at the bench: driving a robotic liquid-handling platform, actuating the instrument, and starting the sequencing run at the right moment. The goal is one command that runs the entire cycle unattended.
+
+### What I am building
+- A **workstation controller** that sequences the whole cycle: call the robotic platform over its REST API, poll its state, actuate the instrument, then start and monitor the run.
+- **Remote instrument control** — starting, stopping and querying run status programmatically over the instrument's control API. *(Working.)*
+- The protocol **encoded as robot programs** on the liquid-handling platform, split around a step the robot cannot perform itself.
+- **Arduino-driven actuation** for the mechanical step the liquid handler can't reach, sequenced against the rest of the protocol.
+
+### Engineering focus
+Verifying every endpoint in simulation before touching wet samples, and designing the controller so a failure at any stage is reported rather than silently swallowed — the failure mode that matters when a run is unattended.
+
+**Stack:** Python, REST APIs, instrument control APIs, Arduino, state machines
+{: .dc-stack}
+
+---
+
+# Estimation &amp; Control
 
 ## Trajectory Optimization for Autonomous Spacecraft Docking
 {: #robust-autonomous-docking}
 
-📎 **Links**
-- [Trajectory Animation](https://drive.google.com/file/d/13JnlbhTjiCzTOqh1IgnJ49QA6oTIqQhc/view?usp=sharing)
+*May 2025 – May 2026 · Python, CasADi, IPOPT · Graduate research, University of Michigan*
 
-### Overview
-Autonomous spacecraft docking is a safety-critical problem that requires generating dynamically feasible trajectories while respecting strict constraints on relative position, velocity, attitude, and line of sight, all under uncertainty. This project focuses on designing a **robust, end-to-end trajectory optimization pipeline** suitable for real autonomous docking systems.
+![Three-phase docking trajectory with approach cone and keep-out region]({{ "/assets/images/3d_trajectory.png" | relative_url }})
 
-### What I Built
-- Designed an **end to end, three phase optimal control pipeline** for autonomous docking:
-  - Far-range approach
-  - Proximity operations
-  - Terminal docking phase
-- Implemented **hard safety and terminal constraints** inspired by NASA docking standards
-- Formulated **uncertainty-aware terminal costs** using covariance-based perturbations
-- Integrated **Monte Carlo sampling** to evaluate constraint satisfaction under uncertainty
+📎 [Trajectory animation](https://drive.google.com/file/d/13JnlbhTjiCzTOqh1IgnJ49QA6oTIqQhc/view?usp=sharing)
 
-### Technical Highlights
-- Nonlinear optimal control formulated using **CasADi**
-- Numerical optimization using **IPOPT**
-- Explicit modeling of **relative position, velocity, and attitude constraints**
-- Designed with future integration of **Kalman filter–based belief propagation** for closed-loop replanning
+### The problem
+Autonomous docking has to produce a dynamically feasible trajectory that respects hard constraints on relative position, velocity, attitude and line of sight — and it has to keep respecting them when the target's pose is uncertain.
 
-### Results & Impact
-- Successfully generated **constraint-satisfying docking trajectories** for deterministic target states
-- Demonstrated sensitivity of terminal feasibility to uncertainty in target pose
-- Established a scalable foundation for **belief-space trajectory optimization** in future iterations
-
-**Tools:** Python, CasADi, IPOPT, Optimal Control, State Estimation
----
-
-## Communication-Aware Multi-Robot Simulation Framework
-{: #multi-robot-simulation}
-
-📎 **Links**
-- [GitHub Repository](https://github.com/Divyanshu-Singh-Chauhan/Resource-Aware-Coordination-AirSim)
-- ![Multi-Robot Simulation Environment]({{ site.baseurl }}/assets/docs/drones_in_simenv.png)
-
-### Overview
-This project focuses on building a **physics-based, photo-realistic simulation environment** for studying coordination, communication constraints, and semantic mapping in multi-robot systems. The goal is to bridge the gap between algorithm development and deployment-ready robotic autonomy.
-
-### What I Built
-- Developed a **ROS2-based multi-robot simulation stack in C++**
-- Integrated **Unity** for photo-realistic visualization and sensor simulation
-- Led the **migration of a large codebase from ROS1 → ROS2**
-- Implemented communication-aware coordination logic for multi-agent systems
-- Integrated **SLAM pipelines and active perception components**
-
-### Engineering Focus
-- Modular ROS2 node architecture for scalability and maintainability
-- Emphasis on **realistic sensing, communication latency, and resource constraints**
-- Designed to support experimentation in **semantic mapping and multi-robot planning**
-
-### Why It Matters
-- Enables testing autonomy algorithms under **realistic communication and sensing constraints**
-- Serves as a research and development platform for **multi-agent coordination**
-- Directly applicable to **drone swarms, robotic fleets, and distributed autonomy**
-
-**Tools:** C++, ROS2, Unity, SLAM, Multi-Robot Systems
----
-
-## Autonomous Vision-Based Manipulation with a 5-DOF Robotic Arm {#armlab-manipulation}
-
-An end-to-end autonomous manipulation system developed for a 5-DOF robotic arm, integrating **computer vision, kinematics, and motion planning** to detect, classify, and manipulate objects in a structured workspace.
-
-The system performs **automatic camera calibration**, **real-time object detection**, and **geometry-based inverse kinematics**, enabling reliable pick-and-place, stacking, and task-level autonomy under competition constraints.
-
-**Key capabilities include:**
-- Automatic **intrinsic and extrinsic camera calibration** using AprilTags
-- Robust **RGB–Depth object detection** with contour refinement and clustering
-- **Forward and inverse kinematics** using the DH convention
-- Geometry-based IK for accurate grasping and placement
-- State-machine–driven autonomy for multi-stage tasks
-
-**Technologies:**  
-*Python, ROS, OpenCV, Intel RealSense (LiDAR), Kinematics, Path Planning*
-
-**Outcome:**  
-🥈 **Second place** in the ROB 550 final competition at the University of Michigan.
-
-[📄 Project Report (PDF)]({{ "/assets/docs/ROB_550_armlab.pdf" | relative_url }})
----
-
-## Lunar Anomaly Detection Using Deep Learning
-{: #lunar-anomaly-detection}
-
-📎 **Links**
-- [Conference Paper](https://agu.confex.com/agu/abscicon21/meetingapp.cgi/Paper/1031511)
-- ![Detected Lunar Anomalies]({{ site.baseurl }}/assets/docs/lunar_anomaly.png)
-
-### Overview
-This project explores **unsupervised anomaly detection** on lunar surface imagery using deep learning. The objective was to automatically identify unusual surface features in large-scale orbital imagery without relying on labeled anomaly data.
-
-### Approach
-- Designed a **Variational Autoencoder (VAE)**-based anomaly detection pipeline
-- Trained models on **terabytes of NASA Lunar Reconnaissance Orbiter (LRO) imagery**
-- Deployed large-scale training workflows using **cloud-based infrastructure**
-- Evaluated reconstruction error distributions to identify anomalous regions
+### What I built
+- The maneuver formulated as a **three-phase constrained optimal control problem** — far-range approach, proximity operations, terminal docking — solved with **CasADi** and **IPOPT**.
+- **Hard safety and terminal constraints** inspired by NASA docking standards, including approach-cone and keep-out constraints.
+- **Uncertainty-aware terminal costs** built from covariance-based quaternion perturbations, with **Monte Carlo sampling** to evaluate constraint satisfaction under uncertainty.
+- A **modular Python pipeline** that decouples the optimization solver, the 6-DOF nonlinear dynamics, and EKF/UKF estimation — so planning, dynamics and estimation can be developed and tested independently.
 
 ### Results
-- Successfully identified geologically unusual regions without supervised labels
-- Demonstrated scalability of unsupervised learning for planetary science datasets
-- Work accepted for presentation at **AbSciCon** and published in peer-reviewed venues
+- Constraint-satisfying docking trajectories generated across the full tested range of initial conditions, with **stable solver convergence** confirmed by Monte Carlo sampling.
+- Quantified how sensitive terminal feasibility is to uncertainty in target pose.
+- A structure that extends directly to **belief-space trajectory optimization** and closed-loop replanning.
 
-### Why It’s Relevant
-- Experience building **end-to-end ML pipelines**, not just models
-- Strong overlap with **perception systems** used in robotics and autonomy
-- Demonstrates ability to handle **large datasets, noisy data, and weak supervision**
+**Stack:** Python, CasADi, IPOPT, optimal control, EKF/UKF, Monte Carlo analysis
+{: .dc-stack}
 
-**Tools:** TensorFlow, Keras, VAEs, Computer Vision, Cloud Computing
+---
+
+## Spacecraft Attitude Determination and Control
+{: #spacecraft-adcs}
+
+*Aug – Dec 2025 · MATLAB, Raspberry Pi · University of Michigan (SPACE 584)*
+
+### The problem
+Take a spacecraft from tip-off — tumbling at roughly 1 rev/s — to stable pointing, using real sensor models and real hardware in the loop rather than an idealized simulation.
+
+### What I built
+- A **real-time Extended Kalman Filter** in MATLAB for a nonlinear attitude model, with **Monte Carlo consistency checks and 1σ error bounds** confirming the estimator was actually consistent, not just low-error on one run.
+- **Magnetometer hard- and soft-iron calibration**, and **star tracker cluster identification** plus IR sun sensor center-of-pixel logic reaching 1° attitude determination accuracy.
+- An **autonomous detumble controller** (B-dot) taking the vehicle from 1 rev/s to below 0.5 deg/s.
+- **Hardware-in-the-loop testing** on a Raspberry Pi 5 with a Helmholtz coil, closing the simulation-to-hardware gap.
+
+**Stack:** MATLAB, Raspberry Pi, EKF, Monte Carlo, HIL, magnetometer calibration
+{: .dc-stack}
+
+---
+
+## Cascaded Control of a Flexible Inverted Pendulum
+{: #flexible-pendulum}
+
+*Jan – Apr 2026 · MATLAB, Simulink · University of Michigan*
+
+### The problem
+Stabilize a 6-state flexible inverted pendulum within a hard ±10° limit when the plant has a lightly damped structural resonance (ω<sub>n</sub> = 20 rad/s, ζ = 0.0002) sitting right where the controller wants bandwidth.
+
+### What I built
+- A **cascaded PID architecture** separating inner and outer loops by 6× in bandwidth, so position tracking and rapid angle stabilization don't fight each other.
+- A **custom notch filter** to suppress the structural resonance without giving up loop bandwidth.
+- Stability verified through **left-half-plane pole placement and the Nyquist criterion**, with robustness validated against 100 N impulse disturbances and near-zero structural damping.
+
+### Why it's interesting
+This is the case where a naive controller looks fine in simulation and shakes itself apart on hardware. The interesting engineering is in the frequency-domain reasoning, not the tuning.
+
+**Stack:** MATLAB, Simulink, cascaded PID, notch filtering, Nyquist analysis
+{: .dc-stack}
+
+---
+
+## Model Predictive Control for Cellular Reprogramming
+{: #mpc-cellular}
+
+*2026 – present · MATLAB, Python · University of Michigan*
+
+Casting cellular reprogramming as a **constrained receding-horizon optimal control problem**: designing the cost and constraint formulation over a nonlinear model, and evaluating closed-loop convergence in MATLAB and Python simulation. A control problem where the plant is biological, the state is only partially observable, and the constraints are what keep the trajectory physically meaningful.
+
+**Stack:** MATLAB, Python, MPC, nonlinear optimization
+{: .dc-stack}
+
+---
+
+# Machine Learning &amp; Perception
+
+## Neural Anomaly Detection on Lunar Imagery
+{: #lunar-anomaly-detection}
+
+*Python, TensorFlow, VAEs · Published at AbSciCon 2022*
+
+![Detected lunar anomalies]({{ "/assets/docs/lunar_anomaly.png" | relative_url }})
+
+### The problem
+Find unusual surface features across terabytes of NASA Lunar Reconnaissance Orbiter imagery — with no labeled anomalies to train on.
+
+### Approach
+- A **variational autoencoder** anomaly detection pipeline, using reconstruction error distributions to flag anomalous regions.
+- Trained on **terabytes of LRO imagery** using cloud-based training infrastructure.
+
+### Results
+- Identified geologically unusual regions without supervised labels.
+- Accepted for presentation at **AbSciCon 2022**.
+
+[Conference paper](https://agu.confex.com/agu/abscicon21/meetingapp.cgi/Paper/1031511)
+
+**Stack:** TensorFlow, Keras, VAEs, computer vision, cloud computing
+{: .dc-stack}
+
+---
+
+## Reinforcement Learning for Grasp Control
+{: #ddpg-grasping}
+
+*2020 – 2021 · Python, ROS, Gazebo · B.Tech thesis, IIT Guwahati*
+
+A **DDPG agent** for continuous closed-loop grasp control of a robotic hand, trained and evaluated end to end in a ROS/Gazebo simulation. The thesis work that pulled me from mechanical engineering toward autonomy.
+
+**Stack:** Python, ROS, Gazebo, DDPG, reinforcement learning
+{: .dc-stack}
+
+---
+
+## Image Tampering Localization
+{: #image-tampering}
+
+*May – Aug 2020 · Python, deep learning · HyperVerge*
+
+Convolutional and GAN-based autoencoders to localize tampered regions in document images, including a **custom Conv2D layer** that raised manipulation detection precision from 75% to 90%, at 91% overall accuracy.
+
+**Stack:** Python, TensorFlow, GANs, autoencoders
+{: .dc-stack}

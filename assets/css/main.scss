@@ -1,30 +1,253 @@
 ---
+# Custom styles layered on top of Minimal Mistakes.
 ---
 
 @import "minimal-mistakes";
 
-.page__hero--overlay {
-  opacity: 1 !important;
-}
+/* ---------------------------------------------------------------------------
+   Palette
+   --------------------------------------------------------------------------- */
+$dc-accent: #38d6e6;
+$dc-accent-2: #f0a848;
+$dc-hairline: rgba(255, 255, 255, 0.12);
+$dc-panel: rgba(255, 255, 255, 0.035);
 
-.page__hero-image {
-  filter: none !important;
-}
-
-.author__avatar img {
-  max-width: 220px;
-  border-radius: 50%;
-  box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
-}
-
-/* UNFADE TOP NAV BAR */
+/* ---------------------------------------------------------------------------
+   Masthead + hero
+   --------------------------------------------------------------------------- */
 .masthead,
-.masthead__inner-wrap {
-  opacity: 1 !important;
-}
-
+.masthead__inner-wrap,
 .site-title,
 .site-subtitle,
 .masthead a {
   opacity: 1 !important;
+}
+
+.page__hero--overlay {
+  padding: 5em 0;
+  background-size: cover;
+  background-position: center;
+
+  .page__title {
+    font-size: 2.6em;
+    letter-spacing: -0.01em;
+  }
+
+  .page__lead {
+    max-width: 46em;
+    margin: 0 auto;
+    font-size: 1.05em;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  .btn {
+    margin: 0.35em 0.35em 0 0;
+  }
+}
+
+@media (max-width: 37.5em) {
+  .page__hero--overlay {
+    padding: 3em 0;
+
+    .page__title { font-size: 1.9em; }
+  }
+}
+
+.author__avatar img {
+  max-width: 180px;
+  border-radius: 50%;
+  border: 1px solid $dc-hairline;
+  box-shadow: 0 0 22px rgba(56, 214, 230, 0.18);
+}
+
+/* ---------------------------------------------------------------------------
+   Readability
+   --------------------------------------------------------------------------- */
+.page__content {
+  h1, h2 {
+    margin-top: 1.8em;
+    padding-bottom: 0.35em;
+    border-bottom: 1px solid $dc-hairline;
+  }
+
+  h3 { margin-top: 1.4em; }
+
+  p, li { line-height: 1.7; }
+
+  hr {
+    border: 0;
+    border-top: 1px solid $dc-hairline;
+    margin: 2.2em 0;
+  }
+
+  img { border-radius: 6px; }
+}
+
+/* ---------------------------------------------------------------------------
+   Call to action strip
+   --------------------------------------------------------------------------- */
+.dc-cta {
+  margin: 1.6em 0;
+  padding: 0.9em 1.1em;
+  border-left: 3px solid $dc-accent;
+  background: $dc-panel;
+  border-radius: 0 6px 6px 0;
+
+  p { margin: 0; }
+}
+
+/* ---------------------------------------------------------------------------
+   "What I work on" cards
+   --------------------------------------------------------------------------- */
+.dc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1em;
+  margin: 1.5em 0 0.5em;
+}
+
+.dc-card {
+  padding: 1.1em 1.2em;
+  border: 1px solid $dc-hairline;
+  border-radius: 8px;
+  background: $dc-panel;
+
+  h3 {
+    margin: 0 0 0.5em;
+    font-size: 1.05em;
+    color: $dc-accent;
+    border: 0;
+  }
+
+  p {
+    margin: 0 0 0.6em;
+    font-size: 0.86em;
+    line-height: 1.6;
+  }
+}
+
+.dc-tags {
+  margin: 0 !important;
+  font-family: $monospace;
+  font-size: 0.72em !important;
+  letter-spacing: 0.02em;
+  opacity: 0.72;
+}
+
+/* ---------------------------------------------------------------------------
+   Featured project rows
+   --------------------------------------------------------------------------- */
+.dc-projects {
+  margin: 1.5em 0;
+}
+
+.dc-project {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 1.3em;
+  align-items: start;
+  padding: 1.2em 0;
+  border-top: 1px solid $dc-hairline;
+
+  &:last-child { border-bottom: 1px solid $dc-hairline; }
+
+  img {
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid $dc-hairline;
+    /* matting so light-background plots sit cleanly on a dark page */
+    background: #fff;
+    padding: 4px;
+  }
+
+  h3 {
+    margin: 0 0 0.4em;
+    font-size: 1.1em;
+    border: 0;
+  }
+
+  p {
+    margin: 0 0 0.55em;
+    font-size: 0.9em;
+  }
+}
+
+.dc-project__noimg {
+  width: 100%;
+  min-height: 120px;
+  border-radius: 6px;
+  border: 1px solid $dc-hairline;
+  background-image:
+    linear-gradient(rgba(56, 214, 230, 0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 214, 230, 0.10) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+@media (max-width: 47em) {
+  .dc-grid { grid-template-columns: 1fr; }
+
+  .dc-project { grid-template-columns: 1fr; }
+
+  .dc-project__noimg { display: none; }
+}
+
+/* ---------------------------------------------------------------------------
+   Project page: stack line
+   --------------------------------------------------------------------------- */
+.dc-stack {
+  font-family: $monospace;
+  font-size: 0.75em !important;
+  letter-spacing: 0.02em;
+  padding: 0.55em 0.8em;
+  border-left: 2px solid $dc-accent-2;
+  background: $dc-panel;
+  border-radius: 0 4px 4px 0;
+  opacity: 0.85;
+}
+
+/* ---------------------------------------------------------------------------
+   Publications
+   --------------------------------------------------------------------------- */
+.dc-pub {
+  padding: 0.9em 1.1em;
+  margin-bottom: 0.9em;
+  border: 1px solid $dc-hairline;
+  border-radius: 8px;
+  background: $dc-panel;
+}
+
+/* ---------------------------------------------------------------------------
+   Button rows
+   --------------------------------------------------------------------------- */
+.dc-resume-actions,
+.dc-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6em;
+  margin: 1.2em 0 1.6em;
+
+  .btn { margin: 0; }
+}
+
+/* ---------------------------------------------------------------------------
+   Tables (experience summary)
+   --------------------------------------------------------------------------- */
+.page__content table {
+  font-size: 0.86em;
+
+  th { display: none; }
+
+  td { border-color: $dc-hairline; }
+
+  td:last-child {
+    white-space: nowrap;
+    font-family: $monospace;
+    font-size: 0.9em;
+    opacity: 0.75;
+  }
+}
+
+@media (max-width: 37.5em) {
+  .page__content table td:last-child { white-space: normal; }
 }
