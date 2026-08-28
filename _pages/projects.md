@@ -86,24 +86,56 @@ Gives a research group a platform where coordination and active perception algor
 
 ---
 
-## Robotic Lab Automation for Unattended Sample Preparation
+## Unattended Nanopore Library Prep and Sequencing
 {: #lab-automation}
 
-*2026 – present · Python, REST APIs, Arduino · University of Michigan*
+*2026 – present · Python, REST APIs, Arduino · Graduate research, University of Michigan*
+
+![System architecture: a Python workstation controller drives the BioAssemblyBot over REST, an Arduino over serial, and the nanopore sequencer over the MinKNOW API]({{ "/assets/images/lab-automation-architecture.svg" | relative_url }})
 
 ### The problem
-A multi-step sample preparation protocol currently requires a person at the bench: driving a robotic liquid-handling platform, actuating the instrument, and starting the sequencing run at the right moment. The goal is one command that runs the entire cycle unattended.
+Preparing a nanopore sequencing library is a 21-step liquid handling protocol that someone has to stand at the bench and perform: opening the flow cell inlet port, priming it, loading buffer and sample in timed stages, sealing it, closing the lid, and then starting the run at the right moment. Every one of those steps is deterministic. None of them should need a person.
 
-### What I am building
-- A **workstation controller** that sequences the whole cycle: call the robotic platform over its REST API, poll its state, actuate the instrument, then start and monitor the run.
-- **Remote instrument control** — starting, stopping and querying run status programmatically over the instrument's control API. *(Working.)*
-- The protocol **encoded as robot programs** on the liquid-handling platform, split around a step the robot cannot perform itself.
-- **Arduino-driven actuation** for the mechanical step the liquid handler can't reach, sequenced against the rest of the protocol.
+The goal is a single command that takes the cycle from an untouched flow cell to a running sequencer, unattended, and reports honestly if anything fails along the way.
+
+### The system
+Three subsystems have to cooperate, and none of them was designed to talk to the others:
+
+- **BioAssemblyBot** — the robotic liquid handling platform that executes the prep protocol, driven over a **REST API on port 5050**: start a stored program, poll its state, report success or failure.
+- **Nanopore sequencer (P2 Solo on GridION)** — driven over the **MinKNOW API** to start a run, stop a run, and query status.
+- **Workstation controller** — the Python layer I'm building that sequences the whole cycle, owns the timing, and decides what happens when a stage doesn't return what it should.
+
+### Where it stands
+
+**Working**
+
+- The sequencer is fully under remote control from the workstation — **start, stop and status all working** over the MinKNOW API, with no hands on the instrument.
+- Connection method to the robot settled: REST over port 5050.
+- Protocol decomposition settled (below), which is what makes the whole cycle expressible as a program.
+
+**In progress**
+
+- Verifying every BioAssemblyBot API endpoint — **in simulation mode first**, before any of it runs against wet samples.
+- Encoding the 21 steps as stored programs on the robot.
+- Arduino lid actuation and its handshake with the rest of the sequence.
+- Data handoff and analysis once a run completes.
+- One full unattended cycle, end to end.
+
+### The interesting design problem
+Step 19 is closing the lid — and the liquid handler physically cannot do it. That one mechanical gap forces the protocol to split into two robot programs with a foreign actuator in between:
+
+| Stage | Steps | What happens |
+|---|---|---|
+| **BioApp A** | 1–18 | Open and prime the inlet port, clear trapped air, load 2 × 500 µL buffer with a 5-minute wait between, transfer 200 µL of sample, seal the port |
+| **Arduino** | 19 | Close the lid — serial command from the controller, outside the robot's program |
+| **BioApp B** | 20–21 | Wait 10 minutes, report ready to sequence |
+
+So the controller isn't just a script that fires three API calls. It has to hold state across two robot programs, an actuator on a serial link, and an instrument API — and know, at each boundary, whether the previous stage actually finished or merely stopped responding.
 
 ### Engineering focus
-Verifying every endpoint in simulation before touching wet samples, and designing the controller so a failure at any stage is reported rather than silently swallowed — the failure mode that matters when a run is unattended.
+Every endpoint is verified in simulation before it touches a real sample, and every stage boundary either confirms completion or raises — because an automation failure that gets silently swallowed at 2 a.m. costs a flow cell and a sample, not just a retry. This is the same failure-reporting discipline as the production automation I built at Standard Chartered, applied to hardware that can't be rolled back.
 
-**Stack:** Python, REST APIs, instrument control APIs, Arduino, state machines
+**Stack:** Python, REST APIs, MinKNOW API, Arduino, serial control, state machines, simulation-first testing
 {: .dc-stack}
 
 ---

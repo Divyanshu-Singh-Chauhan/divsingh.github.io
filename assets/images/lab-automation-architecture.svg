@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-labelledby="title desc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="title">Unattended library preparation and sequencing: system architecture</title>
+  <desc id="desc">A workstation controller drives a BioAssemblyBot over a REST API, an Arduino over serial, and an Oxford Nanopore sequencer over the MinKNOW API. The 21-step preparation protocol is split into BioApp A (steps 1 to 18), an Arduino lid-close step 19, and BioApp B (steps 20 to 21), after which the sequencing run starts.</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#38d6e6"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f0a848"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="960" height="560" rx="10" fill="#0a1018"/>
+
+  <!-- grid -->
+  <g stroke="#16243a" stroke-width="1" opacity="0.5">
+    <path d="M0 40H960M0 80H960M0 120H960M0 160H960M0 200H960M0 240H960M0 280H960M0 320H960M0 360H960M0 400H960M0 440H960M0 480H960M0 520H960"/>
+    <path d="M40 0V560M80 0V560M120 0V560M160 0V560M200 0V560M240 0V560M280 0V560M320 0V560M360 0V560M400 0V560M440 0V560M480 0V560M520 0V560M560 0V560M600 0V560M640 0V560M680 0V560M720 0V560M760 0V560M800 0V560M840 0V560M880 0V560M920 0V560"/>
+  </g>
+
+  <text x="40" y="52" fill="#e7e9ea" font-size="19" font-weight="600">Unattended library prep and sequencing start</text>
+  <text x="40" y="76" fill="#8fa6bd" font-size="13.5">One command on the workstation drives three systems that were previously operated by hand.</text>
+
+  <!-- Controller -->
+  <g>
+    <rect x="360" y="110" width="240" height="86" rx="8" fill="rgba(56,214,230,0.07)" stroke="#38d6e6" stroke-width="1.4"/>
+    <text x="480" y="140" fill="#38d6e6" font-size="14.5" font-weight="600" text-anchor="middle">Workstation controller</text>
+    <text x="480" y="161" fill="#c8d6e3" font-size="12" text-anchor="middle">Python · sequences the full cycle,</text>
+    <text x="480" y="178" fill="#c8d6e3" font-size="12" text-anchor="middle">polls state, reports failure</text>
+  </g>
+
+  <!-- BAB -->
+  <g>
+    <rect x="40" y="270" width="250" height="104" rx="8" fill="rgba(255,255,255,0.035)" stroke="#2b4761" stroke-width="1.2"/>
+    <text x="60" y="298" fill="#e7e9ea" font-size="14" font-weight="600">BioAssemblyBot</text>
+    <text x="60" y="320" fill="#9fb6cd" font-size="12">Robotic liquid handling</text>
+    <text x="60" y="340" fill="#9fb6cd" font-size="12">Runs the stored prep protocol</text>
+    <text x="60" y="360" fill="#9fb6cd" font-size="12">as BioApp A and BioApp B</text>
+  </g>
+
+  <!-- Sequencer -->
+  <g>
+    <rect x="670" y="270" width="250" height="104" rx="8" fill="rgba(255,255,255,0.035)" stroke="#2b4761" stroke-width="1.2"/>
+    <text x="690" y="298" fill="#e7e9ea" font-size="14" font-weight="600">Nanopore sequencer</text>
+    <text x="690" y="320" fill="#9fb6cd" font-size="12">P2 Solo on GridION</text>
+    <text x="690" y="340" fill="#9fb6cd" font-size="12">Remote start / stop / status</text>
+    <text x="690" y="360" fill="#7fd8a8" font-size="12">working end to end</text>
+  </g>
+
+  <!-- Arduino -->
+  <g>
+    <rect x="380" y="290" width="200" height="66" rx="8" fill="rgba(240,168,72,0.07)" stroke="#f0a848" stroke-width="1.2"/>
+    <text x="480" y="316" fill="#f0a848" font-size="14" font-weight="600" text-anchor="middle">Arduino</text>
+    <text x="480" y="337" fill="#c8d6e3" font-size="12" text-anchor="middle">Opens and closes the lid</text>
+  </g>
+
+  <!-- links -->
+  <path d="M360 156 L200 156 L200 264" fill="none" stroke="#38d6e6" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <text x="212" y="204" fill="#38d6e6" font-size="11.5">REST API · port 5050</text>
+  <text x="212" y="222" fill="#6f8ba5" font-size="11.5">start BioApp, poll state</text>
+
+  <path d="M600 156 L768 156 L768 264" fill="none" stroke="#38d6e6" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <text x="626" y="204" fill="#38d6e6" font-size="11.5">MinKNOW API</text>
+  <text x="626" y="222" fill="#6f8ba5" font-size="11.5">start / stop / status</text>
+
+  <path d="M480 200 L480 284" fill="none" stroke="#f0a848" stroke-width="1.4" marker-end="url(#arrow-amber)"/>
+  <text x="492" y="246" fill="#f0a848" font-size="11.5">serial</text>
+
+  <!-- protocol timeline -->
+  <text x="40" y="428" fill="#e7e9ea" font-size="14" font-weight="600">The 21-step protocol, split around the one step the robot cannot do</text>
+
+  <g>
+    <rect x="40" y="446" width="330" height="72" rx="6" fill="rgba(56,214,230,0.06)" stroke="#2b4761" stroke-width="1.1"/>
+    <text x="58" y="470" fill="#38d6e6" font-size="12.5" font-weight="600">BioApp A · steps 1–18</text>
+    <text x="58" y="490" fill="#9fb6cd" font-size="11.5">Open and prime the inlet port, clear air,</text>
+    <text x="58" y="507" fill="#9fb6cd" font-size="11.5">load 2 × 500 µL buffer + 200 µL sample, seal</text>
+
+    <rect x="390" y="446" width="180" height="72" rx="6" fill="rgba(240,168,72,0.06)" stroke="#5c4a2e" stroke-width="1.1"/>
+    <text x="408" y="470" fill="#f0a848" font-size="12.5" font-weight="600">Step 19 · Arduino</text>
+    <text x="408" y="490" fill="#9fb6cd" font-size="11.5">Close the lid — the step</text>
+    <text x="408" y="507" fill="#9fb6cd" font-size="11.5">the liquid handler can't reach</text>
+
+    <rect x="590" y="446" width="150" height="72" rx="6" fill="rgba(56,214,230,0.06)" stroke="#2b4761" stroke-width="1.1"/>
+    <text x="608" y="470" fill="#38d6e6" font-size="12.5" font-weight="600">BioApp B · 20–21</text>
+    <text x="608" y="490" fill="#9fb6cd" font-size="11.5">Wait 10 min,</text>
+    <text x="608" y="507" fill="#9fb6cd" font-size="11.5">report ready</text>
+
+    <rect x="760" y="446" width="160" height="72" rx="6" fill="rgba(127,216,168,0.06)" stroke="#2f5c46" stroke-width="1.1"/>
+    <text x="778" y="470" fill="#7fd8a8" font-size="12.5" font-weight="600">Run starts</text>
+    <text x="778" y="490" fill="#9fb6cd" font-size="11.5">Sequencing begins,</text>
+    <text x="778" y="507" fill="#9fb6cd" font-size="11.5">status polled remotely</text>
+  </g>
+
+  <path d="M372 482 L386 482" stroke="#6f8ba5" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <path d="M572 482 L586 482" stroke="#6f8ba5" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <path d="M742 482 L756 482" stroke="#6f8ba5" stroke-width="1.2" marker-end="url(#arrow)"/>
+</svg>
