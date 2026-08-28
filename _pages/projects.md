@@ -41,6 +41,10 @@ A differential drive robot has to navigate a multi-room indoor environment with 
 
 *Aug – Nov 2024 · Python, ROS, OpenCV, RealSense · University of Michigan (ROB 550)*
 
+![Overhead view of the ArmLab workspace: AprilTag calibration markers, detected and classified blocks with position estimates, and the 5-DOF arm]({{ "/assets/images/armlab-workspace.jpg" | relative_url }})
+*Live detection output: AprilTags fixing the workspace frame, with each block segmented, classified by colour and labelled with its estimated world coordinates.*
+{: .dc-caption}
+
 ### The problem
 Detect, classify and manipulate objects in a structured workspace with a 5-DOF arm — accurately enough to pick, place and stack under competition time limits, using only an RGB-D camera for sensing.
 

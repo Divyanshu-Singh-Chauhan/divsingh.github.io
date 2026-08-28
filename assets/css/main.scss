@@ -251,3 +251,14 @@ $dc-panel: rgba(255, 255, 255, 0.035);
 @media (max-width: 37.5em) {
   .page__content table td:last-child { white-space: normal; }
 }
+
+/* ---------------------------------------------------------------------------
+   Figure captions
+   --------------------------------------------------------------------------- */
+.dc-caption {
+  margin-top: -0.9em !important;
+  font-size: 0.78em !important;
+  line-height: 1.5;
+  opacity: 0.7;
+  font-style: italic;
+}
