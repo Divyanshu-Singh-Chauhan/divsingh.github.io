@@ -92,7 +92,7 @@ Before graduate school I spent three years shipping production Python — micros
   </div>
 
   <div class="dc-project">
-    <div class="dc-project__noimg"></div>
+    <img src="{{ '/assets/images/armlab-workspace.jpg' | relative_url }}" alt="ArmLab workspace with AprilTag calibration and detected blocks labelled with world coordinates">
     <div>
       <h3><a href="{{ '/projects/#armlab-manipulation' | relative_url }}">Vision-Based Robotic Manipulation (ArmLab)</a></h3>
       <p>Perception, kinematics and planning for a 5-DOF arm: AprilTag camera calibration, RGB-D object detection, DH forward/inverse kinematics and a state machine driving multi-stage pick, place and stack tasks. Second place in the ROB 550 final competition.</p>
