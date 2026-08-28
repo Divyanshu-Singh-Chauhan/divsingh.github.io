@@ -65,6 +65,15 @@ Before graduate school I spent three years shipping production Python — micros
   </div>
 
   <div class="dc-project">
+    <img src="{{ '/assets/images/lab-automation-architecture.svg' | relative_url }}" alt="System architecture for unattended nanopore library prep and sequencing">
+    <div>
+      <h3><a href="{{ '/projects/#lab-automation' | relative_url }}">Unattended Nanopore Library Prep and Sequencing</a></h3>
+      <p>Current research: one command takes a 21-step liquid handling protocol from an untouched flow cell to a running sequencer. A Python controller drives a BioAssemblyBot over REST, an Arduino over serial, and the sequencer over the MinKNOW API — holding state across all three and failing loudly rather than silently.</p>
+      <p class="dc-tags">Python · REST APIs · MinKNOW · Arduino · State machines</p>
+    </div>
+  </div>
+
+  <div class="dc-project">
     <div class="dc-project__noimg"></div>
     <div>
       <h3><a href="{{ '/projects/#botlab-slam' | relative_url }}">Particle Filter SLAM &amp; Autonomous Navigation (BotLab)</a></h3>
@@ -101,9 +110,12 @@ Before graduate school I spent three years shipping production Python — micros
 
 | | | |
 |---|---|---|
+| **Graduate Research Assistant** — Robotic Lab Automation | University of Michigan | 2026 – present |
 | **Graduate Research Assistant** — Trajectory Optimization | University of Michigan | May 2025 – May 2026 |
 | **Python Developer** — Cybersecurity Automation | Standard Chartered Bank | 2021 – 2024 |
 | **Deep Learning Intern** | HyperVerge | May – Aug 2020 |
+
+As a **Research Assistant** I'm currently automating a nanopore sequencing workflow end to end: a Python controller that drives a BioAssemblyBot liquid handling robot over its REST API, an Arduino for the one mechanical step the robot can't perform, and the sequencer itself over the MinKNOW API. Remote start, stop and status on the sequencer are working; the 21-step prep protocol is decomposed and being encoded on the robot. [Read the full write-up →]({{ "/projects/#lab-automation" | relative_url }})
 
 Three years of production software engineering sit underneath the research: FastAPI microservices and SOAR automation under CI/CD with Bitbucket code review and pytest, cutting incident response time by 40%, plus an end-to-end supervised phishing detection pipeline reaching 83% accuracy on production data.
 
@@ -111,8 +123,8 @@ Three years of production software engineering sit underneath the research: Fast
 
 ## Currently
 
-- **Lab automation at the University of Michigan** — integrating a robotic liquid-handling platform with a benchtop sequencing instrument over REST, plus Arduino-driven actuation, so a multi-step sample preparation protocol runs unattended end to end.
-- **Model predictive control for cellular reprogramming** — casting a biological reprogramming problem as constrained receding-horizon optimal control, in MATLAB and Python.
+- **Unattended nanopore library prep and sequencing** — a Python controller sequencing a BioAssemblyBot (REST), an Arduino lid actuator (serial) and a P2 Solo sequencer (MinKNOW API) through a 21-step protocol, with every endpoint verified in simulation before it touches a sample. [Details →]({{ "/projects/#lab-automation" | relative_url }})
+- **Model predictive control for cellular reprogramming** — casting a biological reprogramming problem as constrained receding-horizon optimal control, in MATLAB and Python. [Details →]({{ "/projects/#mpc-cellular" | relative_url }})
 
 ---
 
